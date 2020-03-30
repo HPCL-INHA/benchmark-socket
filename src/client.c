@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
 		exit(1);
 	}
 
-	send_size = 1024 * 1024 * 1024;	// 1 GB
+	send_size = BUF_SIZE * 1024;
 	/*
 	   send_size = atoll(argv[3]);
 	   if (send_size / BUF_SIZE * BUF_SIZE != send_size) {

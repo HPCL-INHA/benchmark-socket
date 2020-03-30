@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 
 	unsigned int crc = 0;
 
-	ssize_t total_size = 1024 * 1024 * 1024;	// 1GB
+	ssize_t total_size = BUF_SIZE * 1024;
 	ssize_t read_size, ret;
 
 	unsigned char *buf;
