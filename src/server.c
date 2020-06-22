@@ -92,6 +92,7 @@ int main(int argc, char *argv[])
 	}
 	free(buf);
 
+	printf("\n TOTAL READ SIZE is... %ld\n\n", read_size);
 	printf("buf CRC: 0x%08x\n", crc);
 
 	close(client_socket);
