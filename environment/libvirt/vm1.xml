@@ -1,4 +1,4 @@
-<domain xmlns:qemu="http://libvirt.org/schemas/domain/qemu/1.0" type="kvm">
+<domain type="kvm">
   <name>ubuntu18.04</name>
   <uuid>a92d10ec-1cf6-4d16-ab67-cabce61bc072</uuid>
   <metadata>
@@ -164,11 +164,11 @@
       <backend model="random">/dev/urandom</backend>
       <address type="pci" domain="0x0000" bus="0x06" slot="0x00" function="0x0"/>
     </rng>
+    <shmem name="ivshmem">
+      <model type="ivshmem-doorbell"/>
+      <server path="/tmp/ivshmem_socket"/>
+      <msi vectors="1" ioeventfd="on"/>
+      <address type="pci" domain="0x0000" bus="0x00" slot="0x09" function="0x0"/>
+    </shmem>
   </devices>
-  <qemu:commandline>
-    <qemu:arg value="-object"/>
-    <qemu:arg value="memory-backend-file,id=shmmem-shmem0,mem-path=/dev/hugepages/qemutest,size=1073741824,share=yes"/>
-    <qemu:arg value="-device"/>
-    <qemu:arg value="ivshmem-plain,id=shmem0,memdev=shmmem-shmem0,bus=pcie.0,addr=0x8"/>
-  </qemu:commandline>
 </domain>
